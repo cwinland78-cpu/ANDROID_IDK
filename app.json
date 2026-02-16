@@ -1,0 +1,47 @@
+{
+  "expo": {
+    "name": "IDK Eats",
+    "slug": "idk-eats",
+    "scheme": "idkeats",
+    "version": "1.0.2",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": false,
+    "icon": "./assets/iconfinal.png",
+    "splash": {
+      "image": "./assets/idk-eats-logo.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0f172a"
+    },
+    "android": {
+      "package": "com.idkeats.app",
+      "edgeToEdgeEnabled": true,
+      "permissions": [
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.ACCESS_COARSE_LOCATION"
+      ],
+      "versionCode": 11
+    },
+    "plugins": [
+      "./app.plugin.js",
+      "expo-build-properties",
+      "expo-router",
+      "expo-location",
+      [
+        "react-native-google-mobile-ads",
+        {
+          "androidAppId": "ca-app-pub-5879329589086028~3567654349"
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "eas": {
+        "projectId": "4485c546-887e-49a7-b836-00374f27f5f1"
+      }
+    },
+    "owner": "cwinland78"
+  }
+}
