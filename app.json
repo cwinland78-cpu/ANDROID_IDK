@@ -49,7 +49,7 @@
         "android.permission.POST_NOTIFICATIONS",
         "com.google.android.gms.permission.ACTIVITY_RECOGNITION"
       ],
-      "versionCode": 89
+      "versionCode": 90
     },
     "plugins": [
       "./app.plugin.js",
