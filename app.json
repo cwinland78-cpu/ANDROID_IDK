@@ -49,16 +49,20 @@
         "android.permission.POST_NOTIFICATIONS",
         "com.google.android.gms.permission.ACTIVITY_RECOGNITION"
       ],
-      "versionCode": 88
+      "versionCode": 89
     },
     "plugins": [
       "./app.plugin.js",
-      ["expo-build-properties", {
-        "android": {
-          "compileSdkVersion": 35,
-          "targetSdkVersion": 35
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "compileSdkVersion": 35,
+            "targetSdkVersion": 35,
+            "useLegacyPackaging": true
+          }
         }
-      }],
+      ],
       "expo-router",
       "expo-location",
       [
