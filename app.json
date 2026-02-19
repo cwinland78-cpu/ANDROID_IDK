@@ -3,7 +3,7 @@
     "name": "IDK Eats",
     "slug": "idk-eats",
     "scheme": "idkeats",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "orientation": "portrait",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": false,
@@ -49,7 +49,7 @@
         "android.permission.POST_NOTIFICATIONS",
         "com.google.android.gms.permission.ACTIVITY_RECOGNITION"
       ],
-      "versionCode": 90
+      "versionCode": 92
     },
     "plugins": [
       "./app.plugin.js",
@@ -58,13 +58,7 @@
         {
           "android": {
             "compileSdkVersion": 35,
-            "targetSdkVersion": 35,
-            "ndkVersion": "27.1.12297006",
-            "packagingOptions": {
-              "jniLibs": {
-                "useLegacyPackaging": true
-              }
-            }
+            "targetSdkVersion": 35
           }
         }
       ],

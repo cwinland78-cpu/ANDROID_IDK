@@ -27,7 +27,7 @@ import {
 import * as Haptics from 'expo-haptics';
 import * as Location from 'expo-location';
 import * as Sharing from 'expo-sharing';
-import * as FileSystem from 'expo-file-system';
+import * as FileSystem from 'expo-file-system/legacy';
 import { Asset } from 'expo-asset';
 import { usePlacesStore, Place, DistanceFilter, FilterType } from '@/lib/store';
 import { cn } from '@/lib/cn';
