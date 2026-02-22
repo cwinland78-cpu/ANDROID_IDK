@@ -15,7 +15,7 @@ import { Platform } from 'react-native';
 export const TEST_AD_UNIT_IDS = {
   BANNER: 'ca-app-pub-3940256099942544/6300978111',
   INTERSTITIAL: 'ca-app-pub-3940256099942544/1033173712',
-  REWARDED_INTERSTITIAL: 'ca-app-pub-3940256099942544/5354046379',
+  REWARDED_INTERSTITIAL: 'ca-app-pub-3940256099942544/1033173712',
 };
 
 // Your actual AdMob ad unit IDs (used in production)

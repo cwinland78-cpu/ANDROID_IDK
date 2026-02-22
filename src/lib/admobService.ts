@@ -109,8 +109,8 @@ class InterstitialAdManager {
   }
 }
 
-// Rewarded Interstitial Ad Manager
-class RewardedInterstitialAdManager {
+// Result Interstitial Ad Manager (uses regular Interstitial, not Rewarded)
+class ResultInterstitialAdManager {
   private ad: any = null;
   private isLoaded = false;
   private onRewardCallback: AdEventCallback | null = null;
@@ -118,41 +118,37 @@ class RewardedInterstitialAdManager {
 
   async load(): Promise<boolean> {
     if (!isAdMobAvailable || !isAdPlatformSupported) {
-      console.log('[AdMob] Rewarded: Using placeholder (not available)');
+      console.log('[AdMob] Result: Using placeholder (not available)');
       return false;
     }
 
     try {
-      const { RewardedInterstitialAd, RewardedAdEventType, AdEventType } = AdMobModule;
+      const { InterstitialAd, AdEventType } = AdMobModule;
 
-      this.ad = RewardedInterstitialAd.createForAdRequest(AD_UNIT_IDS.REWARDED_INTERSTITIAL, {
+      this.ad = InterstitialAd.createForAdRequest(AD_UNIT_IDS.REWARDED_INTERSTITIAL, {
         requestNonPersonalizedAdsOnly: true,
       });
 
       return new Promise((resolve) => {
-        this.ad.addAdEventListener(RewardedAdEventType.LOADED, () => {
-          console.log('[AdMob] Rewarded loaded');
+        this.ad.addAdEventListener(AdEventType.LOADED, () => {
+          console.log('[AdMob] Result interstitial loaded');
           this.isLoaded = true;
           resolve(true);
         });
 
         this.ad.addAdEventListener(AdEventType.ERROR, (error: any) => {
-          console.log('[AdMob] Rewarded error:', error);
+          console.log('[AdMob] Result interstitial error:', error);
           this.isLoaded = false;
           resolve(false);
         });
 
-        this.ad.addAdEventListener(RewardedAdEventType.EARNED_REWARD, () => {
-          console.log('[AdMob] Reward earned!');
+        this.ad.addAdEventListener(AdEventType.CLOSED, () => {
+          console.log('[AdMob] Result interstitial closed');
+          this.isLoaded = false;
           if (this.onRewardCallback) {
             this.onRewardCallback();
             this.onRewardCallback = null;
           }
-        });
-
-        this.ad.addAdEventListener(AdEventType.CLOSED, () => {
-          console.log('[AdMob] Rewarded closed');
-          this.isLoaded = false;
           if (this.onCloseCallback) {
             this.onCloseCallback();
             this.onCloseCallback = null;
@@ -164,14 +160,14 @@ class RewardedInterstitialAdManager {
         this.ad.load();
       });
     } catch (error) {
-      console.log('[AdMob] Rewarded load error:', error);
+      console.log('[AdMob] Result interstitial load error:', error);
       return false;
     }
   }
 
   async show(onReward?: AdEventCallback, onClose?: AdEventCallback): Promise<boolean> {
     if (!isAdMobAvailable || !this.isLoaded || !this.ad) {
-      console.log('[AdMob] Rewarded not ready, using placeholder');
+      console.log('[AdMob] Result interstitial not ready, using placeholder');
       return false;
     }
 
@@ -181,7 +177,7 @@ class RewardedInterstitialAdManager {
       await this.ad.show();
       return true;
     } catch (error) {
-      console.log('[AdMob] Rewarded show error:', error);
+      console.log('[AdMob] Result interstitial show error:', error);
       return false;
     }
   }
@@ -193,7 +189,7 @@ class RewardedInterstitialAdManager {
 
 // Export singleton instances
 export const interstitialAd = new InterstitialAdManager();
-export const rewardedInterstitialAd = new RewardedInterstitialAdManager();
+export const rewardedInterstitialAd = new ResultInterstitialAdManager();
 
 // Initialize ads on app start
 export async function initializeAds(): Promise<void> {
