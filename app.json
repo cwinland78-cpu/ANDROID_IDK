@@ -79,12 +79,6 @@
         "projectId": "4485c546-887e-49a7-b836-00374f27f5f1"
       }
     },
-    "owner": "cwinland78",
-    "updates": {
-      "url": "https://u.expo.dev/4485c546-887e-49a7-b836-00374f27f5f1"
-    },
-    "runtimeVersion": {
-      "policy": "appVersion"
-    }
+    "owner": "cwinland78"
   }
 }
