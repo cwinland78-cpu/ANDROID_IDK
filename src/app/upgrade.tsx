@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Pressable, ActivityIndicator, Alert } from 'react-native';
+import { View, Text, Pressable, ActivityIndicator, Alert, Platform } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
@@ -207,7 +207,7 @@ export default function UpgradeScreen() {
 
         {/* Terms */}
         <Text className="text-white/30 text-xs text-center mt-auto">
-          Payment will be charged to your Apple ID account at confirmation of purchase.
+          Payment will be charged to your {Platform.OS === 'ios' ? 'Apple ID' : 'Google Play'} account at confirmation of purchase.
         </Text>
       </View>
     </View>

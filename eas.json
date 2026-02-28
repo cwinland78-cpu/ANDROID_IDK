@@ -12,6 +12,9 @@
     },
     "production": {
       "node": "22.14.0",
+      "env": {
+        "EXPO_PUBLIC_REVENUECAT_GOOGLE_KEY": "goog_aRiHstEfgUyXLXAlZyrHhOqMcvB"
+      },
       "android": {
         "buildType": "app-bundle"
       }
