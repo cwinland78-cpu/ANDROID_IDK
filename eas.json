@@ -12,6 +12,10 @@
     },
     "production": {
       "node": "22.14.0",
+      "install": {
+        "type": "npm",
+        "args": ["--include=dev"]
+      },
       "env": {
         "EXPO_PUBLIC_REVENUECAT_GOOGLE_KEY": "goog_aRiHstEfgUyXLXAlZyrHhOqMcvB"
       },
